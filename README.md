@@ -2,6 +2,7 @@
 
 
 
+[Mosh TS | TS Version 2.3.4 | Youtube Video Link](https://www.youtube.com/watch?v=NjN00cM18Z4)
 ### what is typescript
 Typescript is a superset of javascript, therefore any valid js code is also valid ts code
 
