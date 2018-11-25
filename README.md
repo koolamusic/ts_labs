@@ -12,3 +12,5 @@ Typescript is a superset of javascript, therefore any valid js code is also vali
 - Typescript allows you to catch errors at compile time and not runtime.
 - Great tooling/plugin support for typescript
 - Typescript needs to be transpiled into Javascript to run on the browser
+- You can write the same js code in TS, at least it will always give you warning at compile time.
+
