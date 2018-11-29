@@ -36,12 +36,25 @@ let backgroundColor = Coolor.Blue;
 ```
 
 
-## Type Assertions
 
 ```js
+// namespaced enums
+enum Coolor {RED = 'red', GREEN = 'green', BLUE = 'blue', PURPLE = 'purple'};
+let backgroundColor = Coolor.BLUE;
 
+// js output
+var Coolor;
+(function (Coolor) {
+    Coolor["RED"] = "red";
+    Coolor["GREEN"] = "green";
+    Coolor["BLUE"] = "blue";
+    Coolor["PURPLE"] = "purple";
+})(Coolor || (Coolor = {}));
+;
+var backgroundColor = Coolor.BLUE;
 
 ```
+## Type Assertions
 
 ```js
 
