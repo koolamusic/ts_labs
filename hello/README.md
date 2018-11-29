@@ -33,9 +33,10 @@ const ColorBlue = 2;
 enum Coolor {Red, Green, Blue};
 let backgroundColor = Coolor.Blue;
 
-
-
 ```
+
+
+## Type Assertions
 
 ```js
 
