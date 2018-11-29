@@ -16,6 +16,7 @@ var Coolor;
     Coolor[Coolor["Red"] = 0] = "Red";
     Coolor[Coolor["Green"] = 1] = "Green";
     Coolor[Coolor["Blue"] = 2] = "Blue";
+    Coolor[Coolor["Purple"] = 3] = "Purple";
 })(Coolor || (Coolor = {}));
 ;
 var backgroundColor = Coolor.Blue;
