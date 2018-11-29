@@ -13,10 +13,10 @@ var ColorBlue = 2;
 // using enum
 var Coolor;
 (function (Coolor) {
-    Coolor[Coolor["Red"] = 0] = "Red";
-    Coolor[Coolor["Green"] = 1] = "Green";
-    Coolor[Coolor["Blue"] = 2] = "Blue";
-    Coolor[Coolor["Purple"] = 3] = "Purple";
+    Coolor["RED"] = "red";
+    Coolor["GREEN"] = "green";
+    Coolor["BLUE"] = "blue";
+    Coolor["PURPLE"] = "purple";
 })(Coolor || (Coolor = {}));
 ;
-var backgroundColor = Coolor.Blue;
+var backgroundColor = Coolor.BLUE;

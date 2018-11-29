@@ -14,5 +14,5 @@ const ColorGreen = 1;
 const ColorBlue = 2;
 
 // using enum
-enum Coolor {Red = 0, Green = 1, Blue = 2, Purple = 3};
-let backgroundColor = Coolor.Blue;
+enum Coolor {RED = 'red', GREEN = 'green', BLUE = 'blue', PURPLE = 'purple'};
+let backgroundColor = Coolor.BLUE;
