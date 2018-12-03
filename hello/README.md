@@ -290,8 +290,83 @@ point.draw();
 
 ## Modules (Export | Import)
 
-```js
+```ts
+// points.ts module export
+export class Point { 
+  constructor (private _x?:number, private _y?:number) {
+    // ...
+  }
 
+  draw () {
+    console.log(`The value of X is ${this._x} and the value of Y is ${this._y}`);
+  }
+
+  get x() {
+    return this._x;
+  }
+
+  set x(value) {
+    if (value < 0)
+      throw new Error("x is not a number or lower than zero")
+      this._x = value;
+  }
+}
+
+// OUTPUT IN JAVASCRIPT
+"use strict";
+exports.__esModule = true;
+// the concept of modularity in typescript
+var Point = /** @class */ (function () {
+    function Point(_x, _y) {
+        this._x = _x;
+        this._y = _y;
+        // ...
+    }
+    Point.prototype.draw = function () {
+        console.log("The value of X is " + this._x + " and the value of Y is " + this._y);
+    };
+    Object.defineProperty(Point.prototype, "x", {
+        get: function () {
+            return this._x;
+        },
+        set: function (value) {
+            if (value < 0)
+                throw new Error("x is not a number or lower than zero");
+            this._x = value;
+        },
+        enumerable: true,
+        configurable: true
+    });
+    return Point;
+}());
+exports.Point = Point;
+
+```
+
+
+```js
+// main.ts consuming points module
+// import the point.ts module
+import { Point } from "./point";
+
+let point = new Point(7,9);
+let x = point.x;
+console.log(`X is now ${x}`);
+
+point.x = 21;
+point.draw();
+
+// OUTPUT IN JAVASCRIPT
+"use strict";
+exports.__esModule = true;
+var point_1 = require("./point");
+
+var point = new point_1.Point(7, 9);
+var x = point.x;
+console.log("X is now " + x);
+
+point.x = 21;
+point.draw();
 
 ```
 
