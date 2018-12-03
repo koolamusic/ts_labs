@@ -1,18 +1,16 @@
-// types in ts
-let a: number;
-let b: boolean;
-let c: string;
-let d: any;
-let e: number[] = [1,2,3]; //only array of numbers
-let f: any[] = [1, true, 'a', false]; 
 
+class Point {
+        x: number;
+        y: number;
 
-// working with enums types in TS
-// instead of declaring multiple related variables 
-const ColorRed = 0;
-const ColorGreen = 1;
-const ColorBlue = 2;
+        draw () {
+          //...
+        }
 
-// using enum
-enum Coolor {RED = 'red', GREEN = 'green', BLUE = 'blue', PURPLE = 'purple'};
-let backgroundColor = Coolor.BLUE;
+        getDistance () { 
+          // ...
+        }
+  }
+
+// here we can now have multiple functions implemented within the Point Class while re-using the values of x and y
+
