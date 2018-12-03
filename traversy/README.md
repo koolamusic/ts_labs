@@ -67,3 +67,47 @@ let getName = (fname?: string, lname?: string): string => {
 console.log(getName());
 ```
 
+
+#### INTERFACES
+
+```ts
+// hacking with interfaces
+function showTodo( todo: {title: string, item: string}) : string {
+    return `Title : ${todo.title} Todo : ${todo.item}`;
+}
+
+let myTodo = {title: "Trash", item: "Clean up the Trash"};
+console.log(showTodo(myTodo));
+
+// OUTPUT IN JAVASCRIPT
+function showTodo(todo) {
+    return "Title : " + todo.title + " Todo : " + todo.item;
+}
+var myTodo = { title: "Trash", item: "Clean up the Trash" };
+console.log(showTodo(myTodo));
+```
+
+
+```ts
+// Though the example above may work, using interfaces allow for cleaner expressions in our code
+// Convert the Todo Function to an Interface
+
+interface Todo {
+  title : string;
+  item : string;
+}
+
+let todoItem = (todo : Todo) => {
+  return `${todo.title} : ${todo.item}`;
+}
+
+console.log(todoItem(myTodo));
+
+// OUTPUT IN JS REMAINS THE SAME 
+var todoItem = function (todo) {
+    return todo.title + " : " + todo.item;
+};
+console.log(todoItem(myTodo));
+```
+
+
