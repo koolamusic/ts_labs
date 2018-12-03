@@ -15,3 +15,8 @@ var boolArr;
 var boolArr2;
 // By now I am certain you understand the concept of defining arrays in typescript
 // How about cases where you need other types available in typescript ?
+// The concept of Tuples allow us to define various member types within an Array 
+var strNumTuple;
+strNumTuple = ["Member", 1, 3, 5, 'Access', undefined];
+console.log(strNumTuple);
+// Here we can have an array of strings and numbers, but note that the string must precede the number in ORDER within the array.

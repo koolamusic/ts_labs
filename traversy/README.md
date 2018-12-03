@@ -35,3 +35,13 @@ let boolArr2: Array<boolean>;
 
 #### Tuples
 ```ts
+
+// How about cases where you need other types available in typescript ?
+// The concept of Tuples allow us to define various member types within an Array 
+
+let strNumTuple : [string, number];
+strNumTuple = ["Member", 1, 3, 5, 'Access']
+console.log(strNumTuple)
+
+// Here we can have an array of strings and numbers, but note that the string must precede the number in ORDER within the array.
+```
