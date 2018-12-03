@@ -151,7 +151,7 @@ class Point {
   x: number;
   y: number;
 
-  // we initialize a constructor 
+  // we initialize a constructor | in TYPESCRIT than other languages you can have multiple constructors
   // sometimes we may not know the initial value when initializing a class and will still depend on another function or object to retrieve the required data
   // by adding a question mark after the variable declaration we make it optional to declare properties when initializing the class <all this are checked within the TS compiler and not our JS code>
   constructor (x?:number, y?:number) {
@@ -188,8 +188,30 @@ point.draw();
 
 ```
 
+```ts
+// IMPLEMENTING ACCESS MODIFIERS (PUBLIC | PRIVATE | PROTECTED?) writing cleaner classes
+// The Above example can be written like this
+class Point { 
+  constructor (private x?:number, private y?:number) {
+    // ...
+  }
+
+  draw () {
+    console.log(`The value of X is ${this.x} and the value of Y is ${this.y}`);
+  }
+
+}
+
+let point = new Point(7,9);
+point.draw();
+
+```
+
+## Properties 
+use properties when you want read only access to private fields, but want the user to be able to manipulate the values of the properties while also providing some form of validation
+
 ```js
-// IMPLEMENTING ACCESS MODIFIERS (PUBLIC | PRIVATE | PROTECTED?)
+
 
 ```
 
@@ -197,3 +219,4 @@ point.draw();
 
 
 ```
+
