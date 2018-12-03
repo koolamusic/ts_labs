@@ -57,13 +57,14 @@ var backgroundColor = Coolor.BLUE;
 
 ## Type Assertions
 
-```js
+```ts
 // type assertions allows the TS compiler to process statements of a variable in a particular type
 let message; // no type declared
 message = "fever"
 
 //using type assertions
-let messageR = (<string>message).endsWith('r') // here type assertion is forced with angle brackets on the value of message
+let messageR = (<string>message).endsWith('r'); 
+// here type assertion is forced with angle brackets on the value of message
 let secondMessageR = (message as string).endsWith('r')
 // the first example is the most common method used.
 
@@ -114,6 +115,24 @@ point.x = 2;
 point.y = 3;
 
 //call the draw function within the Point Class below
+point.draw();
+
+
+//The output of the above declaration in javascript 
+var Point = /** @class */ (function () {
+    function Point() {
+    }
+    Point.prototype.draw = function () {
+        console.log("The value of X is " + this.x + " and the value of Y is " + this.y);
+    };
+    Point.prototype.getDistance = function (another) {
+        // ...
+    };
+    return Point;
+}());
+var point = new Point();
+point.x = 2;
+point.y = 3;
 point.draw();
 
 ```
