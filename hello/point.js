@@ -1,5 +1,5 @@
 "use strict";
-exports.__esModule = true;
+Object.defineProperty(exports, "__esModule", { value: true });
 // the concept of modularity in typescript
 var Point = /** @class */ (function () {
     // we initialize a constructor 
