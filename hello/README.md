@@ -211,9 +211,84 @@ point.draw();
 use properties when you want read only access to private fields, but want the user to be able to manipulate the values of the properties while also providing some form of validation
 
 ```js
+// GETTER AND SETTERS
+class Point { 
+  constructor (private _x?:number, private _y?:number) {
+    // ...
+  }
+
+  draw () {
+    console.log(`The value of X is ${this._x} and the value of Y is ${this._y}`);
+  }
+
+  // get is a keyword available to TS classes
+  get x() {
+    // this function retrieves the value of x and can be displayed to our users
+    return this._x;
+  }
+
+  // use the set keyword
+  set x(value) {
+    if (value < 0)
+      throw new Error("x is not a number or lower than zero")
+
+      this._x = value;
+  }
+
+}
+
+// now when we initialize the point class, we call in the parameters of x and y immediately.
+let point = new Point(7,9);
+let x = point.x;
+console.log(`X is now ${x}`);
+// mod x
+x = 10;
+console.log(x);
+
+//call the draw function within the Point Class below
+point.draw();
 
 
+// OUPUT IN JAVASCRIPT
+var Point = /** @class */ (function () {
+    function Point(_x, _y) {
+        this._x = _x;
+        this._y = _y;
+        // ...
+    }
+    Point.prototype.draw = function () {
+        console.log("The value of X is " + this._x + " and the value of Y is " + this._y);
+    };
+    Object.defineProperty(Point.prototype, "x", {
+        // get is a keyword available to TS classes
+        get: function () {
+            // this function retrieves the value of x and can be displayed to our users
+            return this._x;
+        },
+        // use the set keyword
+        set: function (value) {
+            if (value < 0)
+                throw new Error("x is not a number or lower than zero");
+            this._x = value;
+        },
+        enumerable: true,
+        configurable: true
+    });
+    return Point;
+}());
+// now when we initialize the point class, we call in the parameters of x and y immediately.
+var point = new Point(7, 9);
+var x = point.x;
+console.log("X is now " + x);
+x = 10;
+console.log(x);
+//call the draw function within the Point Class below
+point.draw();
+
+// TS COMPILATION  ERROR >>>>  Accessors are only available when targeting ECMAScript 5 and higher.
 ```
+
+## Modules (Export | Import)
 
 ```js
 
