@@ -146,12 +146,11 @@ point.draw();
 // | public | private | protected are available access modifiers in TS
 
 // From the Example above
-// From the Example above
-class Point { 
+class Point {
   x: number;
   y: number;
 
-  // we initialize a constructor | in TYPESCRIT than other languages you can have multiple constructors
+  // we initialize a constructor | in TYPESCRIPT unlike other languages you can have only one constructor
   // sometimes we may not know the initial value when initializing a class and will still depend on another function or object to retrieve the required data
   // by adding a question mark after the variable declaration we make it optional to declare properties when initializing the class <all this are checked within the TS compiler and not our JS code>
   constructor (x?:number, y?:number) {
@@ -191,7 +190,8 @@ point.draw();
 ```ts
 // IMPLEMENTING ACCESS MODIFIERS (PUBLIC | PRIVATE | PROTECTED?) writing cleaner classes
 // The Above example can be written like this
-class Point { 
+// protected classes can only be accessed from child classes that inherits the properties on the origin class
+class Point {
   constructor (private x?:number, private y?:number) {
     // ...
   }
@@ -206,13 +206,13 @@ let point = new Point(7,9);
 point.draw();
 
 ```
-
-## Properties 
+y
+## Properties
 use properties when you want read only access to private fields, but want the user to be able to manipulate the values of the properties while also providing some form of validation
 
 ```js
 // GETTER AND SETTERS
-class Point { 
+class Point {
   constructor (private _x?:number, private _y?:number) {
     // ...
   }
@@ -285,14 +285,14 @@ console.log(x);
 //call the draw function within the Point Class below
 point.draw();
 
-// TS COMPILATION  ERROR >>>>  Accessors are only available when targeting ECMAScript 5 and higher.
+// TS COMPILATION  ERROR >>>>  Accessors are only available when targeting ECMAScript 5 and higher. tsconfig.json
 ```
 
 ## Modules (Export | Import)
 
 ```ts
 // points.ts module export
-export class Point { 
+export class Point {
   constructor (private _x?:number, private _y?:number) {
     // ...
   }
