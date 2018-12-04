@@ -19,7 +19,7 @@ draw () {
   }
 
   // use the set keyword
-  set x(value) {
+  set x( value) {
     if (value < 0)
       throw new Error("x is not a number or lower than zero")
 
