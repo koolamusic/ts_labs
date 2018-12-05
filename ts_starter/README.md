@@ -86,6 +86,62 @@ Initialize a Typescript Project and TS Debugger, TS Config, SourceMapping, File 
 }
 ```
 
+### TEST DATA
+```ts
+// TEST DATA
+let stuArray : any[];
+let learnArray : any[];
+
+
+stuArray = [
+  {
+    fname: 'Chinedu',
+    lname: 'Amos',
+    age: 23,
+    lang: 'English',
+    class: 'JSS2'
+  },
+  {
+    fname: 'Umahi',
+    lname: 'Chinyere',
+    age: 25,
+    lang: 'French',
+    class: 'SS1'
+  },
+  {
+    fname: 'Kola',
+    lname: 'Bobola',
+    age: 26,
+    lang: 'German',
+    class: 'SS3'
+  }
+];
+
+learnArray = [
+  {
+    fname: 'Moriah',
+    lname: 'Abati',
+    age: 23,
+    lang: 'English',
+    class: 'JSS2'
+  },
+  {
+    fname: 'Kunle',
+    lname: 'Katie',
+    age: 25,
+    lang: 'French',
+    class: 'SS1'
+  },
+  {
+    fname: 'Jorowe',
+    lname: 'Numa',
+    age: 26,
+    lang: 'German',
+    class: 'SS3'
+  }
+];
+```
+
 
 ### FUNCTIONS IN TYPESCRIPT
 Functions in typescript can have different types of parameter declarations 
@@ -94,3 +150,71 @@ Functions in typescript can have different types of parameter declarations
 3. Default Parameters
 
 Lets take a look at some examples of these parameter types
+
+
+#### Function with Parameter 
+```ts
+// Function (Parameter with types)
+
+function getAge(array : any[]) {
+  array.forEach(element => {
+    console.log(`${element.fname} has an age of ${element.age}`);
+  })
+}
+
+getAge(stuArray);
+
+// OUTPUT INN JAVASCRIPT
+function getAge(array) {
+    array.forEach(function (element) {
+        console.log(element.fname + " has an age of " + element.age);
+    });
+}
+getAge(stuArray);
+```
+
+
+#### Function with REST Parameters
+functions with rest parameters act like placeholders for multiple arguments of the sametype, REST parameters dont restruct the number of values that you can pass to a function.
+
+```ts
+// This type of function can take in multiple number of values as long as they belong to the parameter : type defined in the function
+
+function userReg(...arrays: any[]) {
+  arrays.forEach(element => {
+    element.forEach(id => {
+      console.log(`${id.fname} has been registered into the Community`);
+    });
+  })
+}
+
+userReg(stuArray);
+
+// OUTPUT IN JAVASCRIPT
+function userReg() {
+    var arrays = [];
+    for (var _i = 0; _i < arguments.length; _i++) {
+        arrays[_i] = arguments[_i];
+    }
+    arrays.forEach(function (element) {
+        element.forEach(function (id) {
+            console.log(id.fname + " has been registered into the Community");
+        });
+    });
+}
+userReg(stuArray);
+
+```
+
+#### Function (Default Parameter)
+```ts
+// Function (Default Parameter Concept)
+function areYouTheOne (answer: boolean = true) {
+  if (!answer)
+  console.log("You broke my heart");
+  else
+  console.log("I love you");
+}
+
+areYouTheOne(false);
+```
