@@ -218,3 +218,86 @@ function areYouTheOne (answer: boolean = true) {
 
 areYouTheOne(false);
 ```
+
+### Interfaces 
+one of TS core principles is that type-checking focuses on the shape that values have. This is sometimes called `duck typing` or `structural subtyping`. In Typescript, interfaces fill the role of naming these types, and are a powerful way of defining contracts within your code as well as contracts with code outside of your project.
+
+With interfaces we can explicitly define what the values of any given type would be without second guessing or relying on Typescripts inbuilt Type Interference to inplicitly assign a default type to the value it receives. 
+
+- Interfaces in Typescripts are a fun way to create custom types for statements and expressions.
+###### Convert the Already Existing Array to use an Interface specifically for it would look like this 
+
+```ts
+//create an Interface called schInfo for School Info 
+interface schInfo {
+  fname: string,
+  lname: string,
+  age: number,
+  lang: string,
+  class: string
+}
+
+
+let stuArray : schInfo[];
+let learnArray : schInfo[];
+
+stuArray = [
+  {
+    fname: 'Chinedu',
+    lname: 'Amos',
+    age: 23,
+    lang: 'English',
+    class: 'JSS2'
+  },
+  {
+    fname: 'Umahi',
+    lname: 'Chinyere',
+    age: 25,
+    lang: 'French',
+    class: 'SS1'
+  },
+  {
+    fname: 'Kola',
+    lname: 'Bobola',
+    age: 26,
+    lang: 'German',
+    class: 'SS3'
+  }
+];
+
+learnArray = [
+  {
+    fname: 'Moriah',
+    lname: 'Abati',
+    age: 23,
+    lang: 'English',
+    class: 'JSS2'
+  },
+  {
+    fname: 'Kunle',
+    lname: 'Katie',
+    age: 25,
+    lang: 'French',
+    class: 'SS1'
+  },
+  {
+    fname: 'Jorowe',
+    lname: 'Numa',
+    age: 26,
+    lang: 'German',
+    class: 'SS3'
+  }
+];
+
+function userReg(...arrays: any[]) {
+  arrays.forEach(element => {
+    // define the type of id in brackets and assign it to the interface schInfo
+    element.forEach((id : schInfo)=> {
+      console.log(`${id.fname} has been registered into the Community`);
+    });
+  })
+}
+
+userReg(stuArray);
+```
+

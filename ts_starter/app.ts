@@ -1,5 +1,17 @@
-let stuArray : any[];
-let learnArray : any[];
+//create an Interface called schInfo for School Info 
+
+interface schInfo {
+  fname: string,
+  lname: string,
+  age: number,
+  lang: string,
+  class: string
+}
+
+
+let stuArray : schInfo[];
+let learnArray : schInfo[];
+
 
 
 stuArray = [
@@ -76,7 +88,8 @@ function getAge(array : any[]) {
 
 function userReg(...arrays: any[]) {
   arrays.forEach(element => {
-    element.forEach(id => {
+    // define the type of id in brackets and assign it to the interface schInfo
+    element.forEach((id : schInfo)=> {
       console.log(`${id.fname} has been registered into the Community`);
     });
   })

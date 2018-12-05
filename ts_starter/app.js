@@ -1,4 +1,5 @@
 "use strict";
+//create an Interface called schInfo for School Info 
 var stuArray;
 var learnArray;
 stuArray = [
@@ -66,6 +67,7 @@ function userReg() {
         arrays[_i] = arguments[_i];
     }
     arrays.forEach(function (element) {
+        // define the type of id in brackets and assign it to the interface schInfo
         element.forEach(function (id) {
             console.log(id.fname + " has been registered into the Community");
         });
