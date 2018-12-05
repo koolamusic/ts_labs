@@ -1,10 +1,37 @@
 "use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
-console.log("Hello ExecuteAutomation");
-var point_1 = require("../hello/point");
-var point = new point_1.Point(4, 5);
-// let point.x = 3;
-point.draw();
-point.x = 4;
-console.log(point.x);
+var stuArray;
+stuArray = [
+    {
+        fname: 'Chinedu',
+        lname: 'Amos',
+        age: 23,
+        lang: 'English',
+        class: 'JSS2'
+    },
+    {
+        fname: 'Umahi',
+        lname: 'Chinyere',
+        age: 25,
+        lang: 'French',
+        class: 'SS1'
+    },
+    {
+        fname: 'Kola',
+        lname: 'Bobola',
+        age: 26,
+        lang: 'German',
+        class: 'SS3'
+    }
+];
+// console.log(stuArray[1]);
+// stuArray.forEach(element => {
+//   console.log(element)
+// });
+// Function (Parameter with types)
+function getAge(array) {
+    array.forEach(function (element) {
+        console.log(element.fname + " has an age of " + element.age);
+    });
+}
+getAge(stuArray);
 //# sourceMappingURL=app.js.map

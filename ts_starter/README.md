@@ -85,3 +85,12 @@ Initialize a Typescript Project and TS Debugger, TS Config, SourceMapping, File 
   }
 }
 ```
+
+
+### FUNCTIONS IN TYPESCRIPT
+Functions in typescript can have different types of parameter declarations 
+1. Parameter with types
+2. Rest Parameters
+3. Default Parameters
+
+Lets take a look at some examples of these parameter types
