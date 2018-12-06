@@ -321,4 +321,40 @@ let stuArray: Array<schInfo>;
 // This gives room to extend the component and add other values to the 
 array that has not been defined within the interface.
 // Also note in typescript `Array` has(is) an interface
+```
+
+
+### Modules 
+Since typescript is a scripting language the concept of modules {export} allows us define classes, interfaces, functions, any 
+concept in Object Oriented Programming in another files and export it to be {import} into our current script. 
+Let's take a look at exporting out schInfo Interface and other classes in the project.
+
+```ts
+filename: module.ts
+// method one of exporting modules
+/**
+ export interface schInfo {
+   fname: string,
+   lname: string,
+   age: number,
+   lang: string,
+   class: string
+ }
+ **/
+
+//method two of exporting modules
+interface schInfo {
+  fname: string,
+  lname: string,
+  age: number,
+  lang: string,
+  class: string
+}
+
+export { schInfo }
+
+// importing it into any script using the import command
+import { schInfo } from "./module";
+
+```
 

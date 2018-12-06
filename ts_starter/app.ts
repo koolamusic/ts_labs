@@ -1,13 +1,4 @@
-//create an Interface called schInfo for School Info 
-
-interface schInfo {
-  fname: string,
-  lname: string,
-  age: number,
-  lang: string,
-  class: string
-}
-
+import { schInfo } from "./module";
 
 let stuArray : schInfo[];
 let learnArray : schInfo[];
