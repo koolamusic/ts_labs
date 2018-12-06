@@ -402,6 +402,17 @@ var calculate;
 ##### Importing our Namespace
 One very important thing to note is that when compiling to javascript, outputFile should be concatenated unless we use a module loader to import our namespaces together in javascript.
 
+```ts
+// Lets import our namespace into main app using triple slash
+/// <reference path="./namespace.ts" />
+let schFees = calculate.schoolFees(3, 432);
+console.log(schFees);
+
+// OUTPUT IN JAVASCRIPT
+var schFees = calculate.schoolFees(3, 432);
+console.log(schFees);
+// From this output we can tell that our namespace import does not utilize any loader, modules and ensures compatibility by only calling it as a variable declaration of a function that exists within an object
+
 
 #### Type Definitions
 Type definitions in `.d.ts` files are mostly used when we include external javascript libraries or APIs, and when we need to consume or use these APIS, we need to define types for it to be in sync with out code in typescript. 
