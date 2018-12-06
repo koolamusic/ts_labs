@@ -358,3 +358,23 @@ import { schInfo } from "./module";
 
 ```
 
+#### Module Loaders
+In javascript there are among a few these module loaders
+
+- AMD
+- CommonJs
+- SystemJs
+- ES2015
+- UMD
+
+Module loaders are used to resolve the problem of loading dependant multiple modules from various locations before the methods are being called; popular module loaders for web applications are 
+
+- Browserify
+- Webpack
+- Parcel Bundler (recently)
+- RequireJS
+
+Web application module loaders remove the complexity of having to deal with and manually manage how we export modules, they automatically export and bundle our files for us, as long as we specify configurations.
+
+`In module loading, AMD,UMD,SystemJS etc all have a syntax as to how we import and export modules, and which Inbuilt JS/TS prototypes need to be imported.`
+
