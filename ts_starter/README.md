@@ -301,3 +301,24 @@ function userReg(...arrays: any[]) {
 userReg(stuArray);
 ```
 
+#### The Concept of Generics
+One of the Typescripts toolbox for creating re-usable components 
+our from our already defined interfaces is **GENERICS**, this way we 
+create a component that can work over a variety of types rather than a 
+single one. this does not affect our already exisiting interfaces, but 
+rather affects the way it is declared when we want to use it, in most 
+cases this affects the new values we are adding that dont already exist 
+within the interface. Users can now consume these components and use 
+their own type.
+
+
+```ts
+// Declaring interfaces, we use the syntax
+let stuArray: schInfo [];
+
+//With Generics 
+let stuArray: Array<schInfo>;
+// This gives room to extend the component and add other values to the 
+array that has not been defined within the interface.
+// Also note in typescript `Array` has(is) an interface
+
