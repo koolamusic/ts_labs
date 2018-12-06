@@ -83,4 +83,8 @@ function areYouTheOne(answer) {
         console.log("I love you");
 }
 areYouTheOne(false);
+// Lets import our namespace into main app using triple slash
+/// <reference path="./namespace.ts" />
+var schFees = calculate.schoolFees(3, 432);
+console.log(schFees);
 //# sourceMappingURL=app.js.map

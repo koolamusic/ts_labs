@@ -378,3 +378,40 @@ Web application module loaders remove the complexity of having to deal with and 
 
 `In module loading, AMD,UMD,SystemJS etc all have a syntax as to how we import and export modules, and which Inbuilt JS/TS prototypes need to be imported.`
 
+
+#### Namespaces
+We use namespace in substitute of modules to create re-usable components within out projects. Namespaces are backward compatible and can work with older version of Javascript and browsers, especially when using type definitions for external javascript libraries written in vanilla javascript, namespaces allows us to re-use functions and classes in these libraries in an easy to integrate manner. 
+
+```ts
+// namespace in typescript
+namespace calculate{
+  export function schoolFees(term: number, fee: number) : number {
+    return term*fee;
+  }
+}
+
+// output in javascript [almost similar to the output of class]
+var calculate;
+(function (calculate) {
+    function schoolFees(term, fee) {
+        return term * fee;
+    }
+    calculate.schoolFees = schoolFees;
+})(calculate || (calculate = {}));
+```
+##### Importing our Namespace
+One very important thing to note is that when compiling to javascript, outputFile should be concatenated unless we use a module loader to import our namespaces together in javascript.
+
+
+#### Type Definitions
+Type definitions in `.d.ts` files are mostly used when we include external javascript libraries or APIs, and when we need to consume or use these APIS, we need to define types for it to be in sync with out code in typescript. 
+
+So how do we solve this problem, goodnews is that there exists repos for typedefinition files for some of the most popular javascript frameworks contributed by the opensource communities, available in 
+
+- [Definitely Typed](http://definitelytyped.org)
+- [Typings](https://github.com/Typings/typings)
+- [NPM](https://npmjs.com/packaages/tsd) - `npm install -g tsd`
+
+
+
+** It is important to note that most type definition files utilize `namespaces` instead of module imports and exports to re-use functionalities within the type files, this helps to improve backward compatibility.**

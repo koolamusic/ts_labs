@@ -98,3 +98,9 @@ function areYouTheOne (answer: boolean = true) {
 }
 
 areYouTheOne(false);
+
+
+// Lets import our namespace into main app using triple slash
+/// <reference path="./namespace.ts" />
+let schFees = calculate.schoolFees(3, 432);
+console.log(schFees);
