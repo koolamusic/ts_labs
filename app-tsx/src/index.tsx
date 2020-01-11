@@ -4,7 +4,13 @@ import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
 
-ReactDOM.render(<App />, document.getElementById('root'));
+const MountPoint = () => (
+    <React.Fragment>
+        <App />
+    </React.Fragment>
+)
+
+ReactDOM.render(<MountPoint />, document.getElementById('root'));
 
 // If you want your app to work offline and load faster, you can change
 // unregister() to register() below. Note this comes with some pitfalls.

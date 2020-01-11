@@ -74,7 +74,7 @@ const App: React.FC = () => {
             <input type="checkbox" onChange={() => completeTodo(index)} />
             <p style={{textDecoration: todo.complete ? 'line-through' : ''}}>{todo.text}</p>
             </div>
-            <button onClick={() => deleteTodo(index)}>Delete</button>
+            <button type="button" onClick={() => deleteTodo(index)}>&times;</button>
           </section>   
       ))}
 
