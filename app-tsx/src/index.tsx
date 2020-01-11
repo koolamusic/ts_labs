@@ -2,11 +2,16 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
+import {Parent, Child} from './Context'
 import * as serviceWorker from './serviceWorker';
 
-const MountPoint = () => (
+const MountPoint : React.FC = () => (
     <React.Fragment>
         <App />
+        <section className="App">
+            <h1>React Context</h1>
+            <Parent><Child/></Parent>
+        </section>
     </React.Fragment>
 )
 

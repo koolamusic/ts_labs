@@ -1,4 +1,4 @@
-import React, {useState, ChangeEvent} from 'react';
+import React, {useState, ChangeEvent, ReactEventHandler} from 'react';
 import './App.css';
 
 // TS interface for our todo list
@@ -12,7 +12,7 @@ const App: React.FC = () => {
   const [todos, setTodos] = useState<TodoInterface[]>([]);
 
   // Submit event to state for form
-  let handleSubmit = (e: React.FormEvent<HTMLFormElement>) : void => {
+  let handleSubmit : ReactEventHandler = (e: React.FormEvent<HTMLFormElement>) : void => {
     // now create a todo object with the value from useState and a boolean for complete
     // value is defined from handleChange event
     const todoDictionary: TodoInterface = {text:value, complete:false};
@@ -22,7 +22,7 @@ const App: React.FC = () => {
   }
 
   // Change event for input form
-  let handleChange = (e: ChangeEvent<HTMLInputElement>): void => setValue(e.target.value);
+  let handleChange : ReactEventHandler = (e: ChangeEvent<HTMLInputElement>): void => setValue(e.target.value);
 
   /**
    * Event handler to delete a Todolist from the todos in app state
@@ -41,7 +41,7 @@ const App: React.FC = () => {
   }
 
   // Event to Add Todo
-  let addTodo = (todoList : TodoInterface) : void => {
+  let addTodo : Function = (todoList : TodoInterface) : void => {
     const newList : TodoInterface[] = [...todos, todoList]
     // call setTodo from usestate
     setTodos(newList)
@@ -51,7 +51,7 @@ const App: React.FC = () => {
    *Event to Complete Todo : We want to get the current index of the clicked element and 
    set the complete todo boolean to true or false
    */
-  let completeTodo = (index: number) => {
+  let completeTodo : Function = (index: number) => {
     const todoList: TodoInterface[] = [...todos];
     todoList[index].complete = !todoList[index].complete;
     setTodos(todoList)
