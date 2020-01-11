@@ -1,14 +1,16 @@
-import React, {createContext, useContext, PropsWithChildren} from 'react';
+import React, { createContext, useContext } from 'react';
 
-const { Provider, Consumer } = createContext('');
+const Store = createContext('');
 
 
-export const Parent : React.FC = (props : PropsWithChildren<{}>) => {
+export const Parent: React.FC<any> = (props: React.ProviderProps<string>) => {
     const text: string = 'random text';
-  return  <Provider value={text}>{props.children}</Provider>
+    return <Store.Provider value={text}>{props.children}</Store.Provider>
 }
 
-export const Child : React.FunctionComponent = () => {
-    // const hook = React.useContext()
-return <Consumer>{(value : string) => <div>{value}</div>}</Consumer>
+export const Child: React.FunctionComponent = () => {
+    const hook = useContext(Store)
+    return (
+        <div>{hook}</div>
+    )
 }
