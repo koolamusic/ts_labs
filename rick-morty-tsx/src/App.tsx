@@ -1,20 +1,8 @@
 import React from 'react'
 import { Store } from './store'
+import { IEpisodes, IAction } from './interfaces'
 
 
-interface IEpisodes {
-  airdate: string,
-  airstamp: Date,
-  airtime: number,
-  id: number,
-  image: Object,
-  name: string,
-  number: number,
-  runtime: number,
-  season: number,
-  summary: string,
-  url: URL
-}
 
 // https://api.tvmaze.com/singlesearch/shows?q=rick-&-morty&embed=episodes
 export default function App(): JSX.Element {
@@ -27,26 +15,30 @@ export default function App(): JSX.Element {
     state.episodes.length === 0 && fetchDataAction()
   })
 
+  // The Fetch Data Action
   const fetchDataAction = async () => {
     const URL = `https://api.tvmaze.com/singlesearch/shows?q=rick-&-morty&embed=episodes`
     const data = await fetch(URL)
 
     // convert data from API to JSON
     const dataJSON = await data.json()
-
     return dispatch({
       type: 'FETCH_DATA',
       payload: dataJSON._embedded.episodes
     })
-
   }
 
-  if (state.episodes.length < 0) {
-    return <div>Loading</div>
+  // Add Favorites Action
+  const addFavoriteAction = (episode: IEpisodes): IAction => {
+    return dispatch({
+      type: 'ADD_FAV',
+      payload: episode
+    })
+
+
   }
 
   const episodeStyle = {
-    // display: 'flex',
     border: '1px solid #333',
     borderRadius: '3px',
     width: 200,
@@ -56,7 +48,7 @@ export default function App(): JSX.Element {
 
   return (
     <React.Fragment>
-      {console.log("THIS IS OUPT", state.episodes)}
+      {console.log("THIS IS OUPT", state)}
       <h1>Rick and Morty</h1>
       <p>Pick your favorite Episode</p>
 
@@ -71,6 +63,7 @@ export default function App(): JSX.Element {
                 <section>
                   Season: {episode.season} Number: {episode.number}
                 </section>
+                <button onClick={() => addFavoriteAction(episode)}>Fav</button>
               </div>
             </section>
           )
