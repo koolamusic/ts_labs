@@ -18,7 +18,7 @@ const removeUserById = (id) => {
 }
 
 const updateUserById = (id, update) => {
-  return User.findByIdAndUpdate(id, update, {new: true}).exec()
+  return User.findByIdAndUpdate(id, update, { new: true }).exec()
 }
 
 module.exports = {
