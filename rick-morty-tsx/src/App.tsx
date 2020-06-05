@@ -29,7 +29,8 @@ export default function App(): JSX.Element {
   }
 
   // Add Favorites Action
-  const addFavoriteAction = (episode: IEpisodes): IAction => {
+  const toggleFavAction = (episode: IEpisodes): IAction => {
+    const episodeInFav = state.favourites.includes(episode)
     return dispatch({
       type: 'ADD_FAV',
       payload: episode
@@ -63,7 +64,7 @@ export default function App(): JSX.Element {
                 <section>
                   Season: {episode.season} Number: {episode.number}
                 </section>
-                <button onClick={() => addFavoriteAction(episode)}>Fav</button>
+                <button onClick={() => toggleFavAction(episode)}>Fav</button>
               </div>
             </section>
           )
