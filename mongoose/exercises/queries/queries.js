@@ -1,11 +1,11 @@
 const Post = require('./post')
 
 const postByTitle = (title) => {
-  return Post.findOne({title}).exec()
+  return Post.findOne({ title }).exec()
 }
 
 const postsForAuthor = (authorId) => {
-  return Post.find({author: authorId}).exec()
+  return Post.find({ author: authorId }).exec()
 }
 
 const fullPostById = (id) => {
@@ -24,15 +24,15 @@ const allPostsSlim = (fieldsToSelect) => {
 
 const postByContentLength = (maxContentLength, minContentLength) => {
   return Post.find({
-    contentLength: {$lt: maxContentLength, $gt: minContentLength}
+    contentLength: { $lt: maxContentLength, $gt: minContentLength }
   })
     .exec()
 }
 
 const addSimilarPosts = (postId, similarPosts) => {
   return Post.findByIdAndUpdate(postId, {
-    $push: {similarPosts: {$each: similarPosts}}
-  },{new: true})
+    $push: { similarPosts: { $each: similarPosts } }
+  }, { new: true })
 }
 
 module.exports = {
